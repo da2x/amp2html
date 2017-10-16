@@ -5,7 +5,8 @@
   "short_name": "amp2html",
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
   "icons": {
-    "48": "assets/icon_48.png"
+    "48": "assets/icon_48.png",
+    "256": "assets/icon_256.png"
   },
   "incognito": "spanning",
   "content_scripts": [ {
