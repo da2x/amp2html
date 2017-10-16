@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "version": "1.1.0",
+  "name": "Redirect AMP to HTML",
+  "short_name": "amp2html",
+  "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
+  "icons": {
+    "48": "assets/icon_48.png"
+  },
+  "incognito": "spanning",
+  "content_scripts": [ {
+      "js": ["amp2html.js"],
+      "matches": ["http://*/*","https://*/*"],
+      "run_at": "document_end"
+} ] }
