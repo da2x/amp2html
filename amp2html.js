@@ -6,5 +6,5 @@ if (document.querySelector("html[amp],html[⚡]")) {
     canon = canon.href.trim();
     if (null != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:'))) {
-    document.location = canon;
+    document.location.replace(canon);
 } } }
