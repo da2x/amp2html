@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2017 Daniel Aleksandersen
+ * SPDX-License-Identifier: MIT
+ * License-Filename: LICENSE
+ */
+
 if (document.querySelector("html[amp],html[⚡]")) {
   var amp = document.head.querySelector("link[rel='amphtml'][href]"),
   canon = document.head.querySelector("link[rel='canonical'][href]");
