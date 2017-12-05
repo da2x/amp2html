@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "Redirect AMP to HTML",
   "short_name": "amp2html",
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
