@@ -11,6 +11,7 @@ if (document.querySelector("html[amp],html[⚡]")) {
       !(amp != null && amp.href == canon.href)) {
     canon = canon.href.trim();
     if (null != canon &&
+        document.location != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:'))) {
     document.location.replace(canon);
 } } }
