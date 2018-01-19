@@ -1,12 +1,15 @@
 /*
- * Copyright © 2017 Daniel Aleksandersen
+ * Copyright © 2017–2018 Daniel Aleksandersen
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
 
-if (document.querySelector("html[amp],html[⚡]")) {
+// tests for AMP first, and then Google hosted iframed AMP
+if (document.querySelector("html[amp],html[⚡]") ||
+    (document.location.pathname.split('/')[1] == "amp" &&
+     document.querySelector("g-full-page-view")) ) {
   var amp = document.head.querySelector("link[rel='amphtml'][href]"),
-  canon = document.head.querySelector("link[rel='canonical'][href]");
+  canon = document.head.querySelector("link[rel='canonical'][href],link[rel='canonical']");
   if (null != canon && canon.href != null &&
       !(amp != null && amp.href == canon.href)) {
     canon = canon.href.trim();
