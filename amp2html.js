@@ -4,10 +4,10 @@
  * License-Filename: LICENSE
  */
 
-// tests for AMP first, and then Google hosted iframed AMP
+// tests for AMP first, and then Google hosted AMP
 if (document.querySelector("html[amp],html[⚡]") ||
     (document.location.pathname.split('/')[1] == "amp" &&
-     document.querySelector("g-full-page-view")) ) {
+     document.location.hostname.split('.')[1] == "google") ) {
   var amp = document.head.querySelector("link[rel='amphtml'][href]"),
   canon = document.head.querySelector("link[rel='canonical'][href],link[rel='canonical']");
   if (null != canon && canon.href != null &&
