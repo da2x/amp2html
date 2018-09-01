@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.5.2",
+  "version": "1.6.0",
   "name": "Redirect AMP to HTML",
   "short_name": "amp2html",
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
@@ -8,9 +8,26 @@
     "48": "assets/icon_48.png",
     "256": "assets/icon_256.png"
   },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "scripts/sync_handler.js"
+    ]
+  },
+  "applications": {
+    "gecko": {
+      "id": "{569456be-2850-4f7e-b669-71e55140ee0a}",
+      "strict_min_version": "60.0"
+    }
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
   "incognito": "spanning",
   "content_scripts": [ {
-      "js": ["amp2html.js"],
+      "js": ["scripts/amp2html.js"],
       "matches": ["http://*/*","https://*/*"],
       "run_at": "document_end"
 } ] }

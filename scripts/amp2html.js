@@ -18,6 +18,9 @@ if (document.querySelector("html[amp],html[⚡]"))
         document.location != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:')))
     {
+      browser.storage.local.get('redirect_count').then(
+        data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
+      );
       document.location.replace(canon);
 } } }
 
