@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.6.0",
+  "version": "1.7.0",
   "name": "Redirect AMP to HTML",
   "short_name": "amp2html",
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
@@ -9,11 +9,15 @@
     "256": "assets/icon_256.png"
   },
   "permissions": [
-    "storage"
+    "*://t.co/*",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "background": {
     "scripts": [
-      "scripts/sync_handler.js"
+      "scripts/sync_handler.js",
+      "scripts/redirector.js"
     ]
   },
   "applications": {
