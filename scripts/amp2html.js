@@ -4,16 +4,16 @@
  * License-Filename: LICENSE
  */
 
+var link_amp = document.head.querySelector("link[rel~='amphtml'][href]"),
+    link_can = document.head.querySelector("link[rel~='canonical'][href]");
 
 // standard AMP documents
 if (document.querySelector("html[amp],html[⚡]"))
 {
-  var amp = document.head.querySelector("link[rel='amphtml'][href]"),
-  canon = document.head.querySelector("link[rel='canonical'][href],link[rel='canonical']");
-  if (null != canon && canon.href != null &&
-      !(amp != null && amp.href == canon.href))
+    if (null != link_can && link_can.href != null &&
+      !(link_amp != null && link_amp.href == link_can.href))
   {
-    canon = canon.href.trim();
+    var canon = link_can.href.trim();
     if (null != canon &&
         document.location != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:')))
@@ -23,6 +23,21 @@ if (document.querySelector("html[amp],html[⚡]"))
       );
       document.location.replace(canon);
 } } }
+
+// unidentified AMP documents
+if (null != link_amp && null != link_can &&
+    link_amp.href != link_can.href &&
+    link_amp.href == document.location.href)
+{
+  var canon = link_can.href.trim();
+  if (null != canon &&
+      (canon.startsWith('https:') || canon.startsWith('http:')))
+  {
+    browser.storage.local.get('redirect_count').then(
+      data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
+    );
+    document.location.replace(canon);
+} }
 
 // google news
 else if (document.location.host.includes('news.google.'))
