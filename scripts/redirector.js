@@ -1,10 +1,6 @@
-var pattern = [
-  '*://t.co/*?amp=1'
-];
-
 // Convert https://t.co/abc123?amp=1
 //      to https://t.co/abc123
-function redirector(requestDetails) {
+function t_co_redirector(requestDetails) {
   var redirection = new URL(requestDetails.url);
   redirection.search = '';
   browser.storage.local.get('redirect_count').then(
@@ -17,7 +13,11 @@ function redirector(requestDetails) {
 
 
 browser.webRequest.onBeforeRequest.addListener(
-  redirector,
-  {urls: pattern},
+  t_co_redirector,
+  {
+    urls: [
+      '*://t.co/*?amp=1'
+    ]
+  },
   ["blocking"]
 );
