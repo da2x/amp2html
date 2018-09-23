@@ -40,7 +40,7 @@ if (null != link_amp && null != link_can &&
 } }
 
 // google news
-else if (document.location.host.includes('news.google.'))
+if (document.location.host.includes('news.google.'))
 {
   var amp_links = document.querySelectorAll("a[ampo_url]");
   for (i = 0; i < amp_links.length; ++i)
@@ -50,15 +50,18 @@ else if (document.location.host.includes('news.google.'))
 } }
 
 // google search
-else if (document.location.host.includes('.google.') &&
+if (document.location.host.includes('.google.') &&
     document.querySelector("html[itemtype='http://schema.org/SearchResultsPage']"))
 {
   var amp_links = document.querySelectorAll("a[data-amp][data-amp-cur]");
   for (i = 0; i < amp_links.length; ++i)
   {
     var link = amp_links[i];
-    link.href = link.dataset.amp;
-    delete link.dataset.amp;
-    delete link.dataset.ampCur;
+    link.href = link.dataset.ampCur;
+    link.dataset.amp = link.dataset.ampCur;
+/*    delete link.dataset.ampCur;
+    delete link.dataset.ampTitle;
+    delete link.dataset.ampVed;
+    delete link.dataset.ampVgi; */
 } }
 
