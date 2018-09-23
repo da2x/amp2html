@@ -59,9 +59,4 @@ if (document.location.host.includes('.google.') &&
     var link = amp_links[i];
     link.href = link.dataset.ampCur;
     link.dataset.amp = link.dataset.ampCur;
-/*    delete link.dataset.ampCur;
-    delete link.dataset.ampTitle;
-    delete link.dataset.ampVed;
-    delete link.dataset.ampVgi; */
 } }
-
