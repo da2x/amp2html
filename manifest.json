@@ -2,8 +2,10 @@
   "manifest_version": 2,
   "version": "1.8.0",
   "name": "Redirect AMP to HTML",
-  "short_name": "amp2html",
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
+  "short_name": "amp2html",
+  "author": "Daniel Aleksandersen",
+  "homepage_url": "https://www.daniel.priv.no/web-extensions/amp2html",
   "icons": {
     "48": "assets/icon_48.png",
     "256": "assets/icon_256.png"
