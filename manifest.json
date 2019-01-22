@@ -12,6 +12,12 @@
   },
   "permissions": [
     "*://t.co/*",
+    "https://amp.cloudflare.com/c/*",
+    "https://*.amp.cloudflare.com/c/*",
+    "https://bing-amp.com/c/*",
+    "https://*.bing-amp.com/c/*",
+    "https://cdn.ampproject.org/c/*",
+    "https://*.cdn.ampproject.org/c/*",
     "https://www.bing.com/amp/*",
     "https://www.google.com/amp/*",
     "storage",
