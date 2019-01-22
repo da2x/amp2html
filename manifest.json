@@ -20,6 +20,7 @@
     "https://*.cdn.ampproject.org/c/*",
     "https://www.bing.com/amp/*",
     "https://www.google.com/amp/*",
+    "cookies",
     "storage",
     "webRequest",
     "webRequestBlocking"
@@ -27,6 +28,7 @@
   "background": {
     "scripts": [
       "scripts/sync_handler.js",
+      "scripts/opt-out.js",
       "scripts/redirector.js"
     ]
   },
