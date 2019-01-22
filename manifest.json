@@ -5,7 +5,7 @@
   "description": "Automatically redirects AMP pages to their canonical HTML equivalent.",
   "short_name": "amp2html",
   "author": "Daniel Aleksandersen",
-  "homepage_url": "https://www.daniel.priv.no/web-extensions/amp2html",
+  "homepage_url": "https://www.daniel.priv.no/web-extensions/amp2html.html",
   "icons": {
     "48": "assets/icon_48.png",
     "256": "assets/icon_256.png"
