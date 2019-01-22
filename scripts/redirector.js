@@ -45,7 +45,7 @@ browser.webRequest.onBeforeRequest.addListener(
 // Convert https://www-example-com.bing-amp.com/c/www.example.com/amp/document
 //      to http://www.example.com/amp/document
 
-function amp_amp_redirector(requestDetails)
+function amp_cache_redirector(requestDetails)
 {
   var amp_cache = new URL(requestDetails.url);
   var redirection = amp_cache.pathname.replace(/^\/c\/s\//, 'https://').replace(/^\/c\//, 'http://');
@@ -62,10 +62,10 @@ browser.webRequest.onBeforeRequest.addListener(
   amp_cache_redirector,
   {
     urls: [
-      'https://amp.cloudflare.com/c/*'
+      'https://amp.cloudflare.com/c/*',
       'https://*.amp.cloudflare.com/c/*',
       'https://cdn.ampproject.org/c/*',
-      'https://*.cdn.ampproject.org/c/*'
+      'https://*.cdn.ampproject.org/c/*',
       'https://bing-amp.com/c/*',
       'https://*.bing-amp.com/c/*'
     ]
