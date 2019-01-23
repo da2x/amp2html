@@ -5,19 +5,18 @@
 // Convert https://www.google.com/amp/www.example.com/amp/document
 //      to http://www.example.com/amp/document
 
+var browserapp = (typeof browser !== 'undefined') ? browser : chrome;
+
 function amp_viewer_redirector(requestDetails)
 {
   var amp_viewer = new URL(requestDetails.url);
   var redirection = amp_viewer.pathname.replace(/^\/amp\/s\//, 'https://').replace(/^\/amp\//, 'http://');
-  browser.storage.local.get('redirect_count').then(
-    data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
-  );
   return {
     redirectUrl: redirection
   };
 }
 
-browser.webRequest.onBeforeRequest.addListener(
+browserapp.webRequest.onBeforeRequest.addListener(
   amp_viewer_redirector,
   {
     urls: [
@@ -49,16 +48,14 @@ function amp_cache_redirector(requestDetails)
 {
   var amp_cache = new URL(requestDetails.url);
   var redirection = amp_cache.pathname.replace(/^\/c\/s\//, 'https://').replace(/^\/c\//, 'http://');
-  browser.storage.local.get('redirect_count').then(
-    data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
-  );
+  if (navigator.userAgent.includes('Firefox'))
   return {
     redirectUrl: redirection
   };
 }
 
 
-browser.webRequest.onBeforeRequest.addListener(
+browserapp.webRequest.onBeforeRequest.addListener(
   amp_cache_redirector,
   {
     urls: [
@@ -81,15 +78,12 @@ function t_co_redirector(requestDetails)
 {
   var redirection = new URL(requestDetails.url);
   redirection.search = '';
-  browser.storage.local.get('redirect_count').then(
-    data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
-  );
   return {
     redirectUrl: redirection.toString()
   };
 }
 
-browser.webRequest.onBeforeRequest.addListener(
+browserapp.webRequest.onBeforeRequest.addListener(
   t_co_redirector,
   {
     urls: [

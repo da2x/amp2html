@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017–2018 Daniel Aleksandersen
+ * Copyright © 2017–2019 Daniel Aleksandersen
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
@@ -10,7 +10,7 @@ var link_amp = document.head.querySelector("link[rel~='amphtml'][href]"),
 // standard AMP documents
 if (document.querySelector("html[amp],html[⚡]"))
 {
-    if (null != link_can && link_can.href != null &&
+  if (null != link_can && link_can.href != null &&
       !(link_amp != null && link_amp.href == link_can.href))
   {
     var canon = link_can.href.trim();
@@ -18,9 +18,6 @@ if (document.querySelector("html[amp],html[⚡]"))
         document.location != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:')))
     {
-      browser.storage.local.get('redirect_count').then(
-        data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
-      );
       document.location.replace(canon);
 } } }
 
@@ -33,9 +30,6 @@ if (null != link_amp && null != link_can &&
   if (null != canon &&
       (canon.startsWith('https:') || canon.startsWith('http:')))
   {
-    browser.storage.local.get('redirect_count').then(
-      data => browser.storage.local.set({'redirect_count': (data.redirect_count || 0) + 1})
-    );
     document.location.replace(canon);
 } }
 

@@ -21,13 +21,11 @@
     "https://www.bing.com/amp/*",
     "https://www.google.com/amp/*",
     "cookies",
-    "storage",
     "webRequest",
     "webRequestBlocking"
   ],
   "background": {
     "scripts": [
-      "scripts/sync_handler.js",
       "scripts/opt-out.js",
       "scripts/redirector.js"
     ]
@@ -37,9 +35,6 @@
       "id": "{569456be-2850-4f7e-b669-71e55140ee0a}",
       "strict_min_version": "60.0"
     }
-  },
-  "options_ui": {
-    "page": "options.html"
   },
   "incognito": "spanning",
   "content_scripts": [ {
