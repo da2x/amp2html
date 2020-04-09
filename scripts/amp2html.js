@@ -7,32 +7,22 @@
 var link_amp = document.head.querySelector("link[rel~='amphtml'][href]"),
     link_can = document.head.querySelector("link[rel~='canonical'][href]");
 
-// standard AMP documents
-if (document.querySelector("html[amp],html[⚡]"))
+if (document.querySelector("html[amp],html[⚡]") ||
+   (null != link_amp && link_amp.href == document.location.href))
 {
   if (null != link_can && link_can.href != null &&
       !(link_amp != null && link_amp.href == link_can.href))
   {
-    var canon = link_can.href.trim();
-    if (null != canon &&
-        document.location != canon &&
-        document.referrer != canon &&
-        (canon.startsWith('https:') || canon.startsWith('http:')))
+    // don’t redirect to self, referrer, internal origin-bound last redirect destination, or non-web schemes
+    if (null != link_can.href &&
+        document.location.href != link_can.href &&
+        document.referrer != link_can.href &&
+        sessionStorage.getItem('amp2html_extension_redirect_destination') != link_can.href &&
+        (link_can.href.startsWith('https:') || link_can.href.startsWith('http:')))
     {
-      document.location.replace(canon);
+      sessionStorage.setItem('amp2html_extension_redirect_destination', link_can.href);
+      document.location.replace(link_can.href);
 } } }
-
-// unidentified AMP documents
-if (null != link_amp && null != link_can &&
-    link_amp.href != link_can.href &&
-    link_amp.href == document.location.href)
-{
-  var canon = link_can.href.trim();
-  if (null != canon &&
-      (canon.startsWith('https:') || canon.startsWith('http:')))
-  {
-    document.location.replace(canon);
-} }
 
 // google news
 if (document.location.host.includes('news.google.'))
