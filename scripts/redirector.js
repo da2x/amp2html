@@ -28,10 +28,6 @@ browserapp.webRequest.onBeforeRequest.addListener(
 );
 
 
-// Cloudflare AMP Cache
-// Convert https://amp.cloudflare.com/c/s/www.example.com/amp/document
-//      to https://www.example.com/amp/document
-// Convert https://www-example-com.amp.cloudflare.com/c/www.example.com/amp/document
 //      to http://www.example.com/amp/document
 // Google AMP Cache
 // Convert https://cdn.ampproject.org/c/s/www.example.com/amp/document
@@ -59,8 +55,6 @@ browserapp.webRequest.onBeforeRequest.addListener(
   amp_cache_redirector,
   {
     urls: [
-      'https://amp.cloudflare.com/c/*',
-      'https://*.amp.cloudflare.com/c/*',
       'https://cdn.ampproject.org/c/*',
       'https://*.cdn.ampproject.org/c/*',
       'https://bing-amp.com/c/*',
