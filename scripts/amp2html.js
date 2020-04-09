@@ -16,6 +16,7 @@ if (document.querySelector("html[amp],html[⚡]"))
     var canon = link_can.href.trim();
     if (null != canon &&
         document.location != canon &&
+        document.referrer != canon &&
         (canon.startsWith('https:') || canon.startsWith('http:')))
     {
       document.location.replace(canon);
