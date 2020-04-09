@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2017–2020 Daniel Aleksandersen <https://www.daniel.priv.no/>
+ * SPDX-License-Identifier: MIT
+ * License-Filename: LICENSE
+ */
+
 // Bing AMP Viewer
 // Convert https://www.bing.com/amp/s/www.example.com/amp/document
 //      to https://www.example.com/amp/document

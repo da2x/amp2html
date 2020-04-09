@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017–2019 Daniel Aleksandersen
+ * Copyright © 2017–2020 Daniel Aleksandersen <https://www.daniel.priv.no/>
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
